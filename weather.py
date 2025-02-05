@@ -12,33 +12,16 @@ def get_weather(place, payload):
 
 
 def main():
-    london_weather = get_weather(
-        "london",
-        {
-            'nTqu': '',
-            'lang': 'en',
-        },
-    )
-    print(london_weather)
+    places = [
+        {"place": "london", "payload": {"nTqu": "", "lang": "en"}}, 
+        {"place": "svo", "payload": {"nTqu": "", "lang": "en"}},
+        {"place": "череповец", "payload": {"nTqM": "", "lang": "ru"}},
+    ]
 
-    svo_weather = get_weather(
-        "svo",
-        {
-            'nTqu': '',
-            'lang': 'en',
-        },
-
-    )
-    print(svo_weather)
-
-    cherepovets_weather = get_weather(
-        "череповец",
-        {
-            'nTqM': '',
-            'lang': 'ru',
-        },
-    )
-    print(cherepovets_weather)
+    for location in places:
+        payload = location.get('payload')
+        place = location.get('place') 
+        print(get_weather(place, payload))
 
 
 if __name__ == '__main__':
